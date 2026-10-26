@@ -18,13 +18,6 @@ CREATE TABLE Document (
     date_import TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Categorie_Toxicite (
-    id_cat SERIAL PRIMARY KEY,
-    libelle VARCHAR(100) NOT NULL,
-    type VARCHAR(50),
-    raison TEXT
-);
-
 CREATE TABLE Clause (
     id_clause SERIAL PRIMARY KEY,
     id_doc INT REFERENCES Document(id_doc),
@@ -32,6 +25,13 @@ CREATE TABLE Clause (
     page INT,
     texte TEXT NOT NULL,
     categorie_theme VARCHAR(100)
+);
+
+CREATE TABLE Categorie_Toxicite (
+    id_cat SERIAL PRIMARY KEY,
+    libelle VARCHAR(100) NOT NULL,
+    type VARCHAR(50),
+    raison TEXT
 );
 
 CREATE TABLE Evaluation (
@@ -44,3 +44,4 @@ CREATE TABLE Evaluation (
     modele VARCHAR(100),
     date_eval TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
